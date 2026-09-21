@@ -8,7 +8,7 @@ class usuario:
        """ ENVIAR UN MENSAJE A OTRO USUARIO  """
     
     def consultarInformacion(self):
-      """    CONSULTAR LA INFORMACION DEL USUARIO """
+      """ CONSULTAR LA INFORMACION DEL USUARIO """
 
 usuario1 = usuario("Lina", "lina@unintep.edu.co")
 usuario2 = usuario("Ana", "ana@unintep.edu.co")
