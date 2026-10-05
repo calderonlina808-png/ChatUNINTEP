@@ -49,12 +49,15 @@ class usuario:
 
 usuario1 = usuario("Carla Moreno", "carla@example.com", 123456, "00000")
 usuario2 = usuario("Ramón Gil", "ramon@example.com", 234567 ,"00000")
+usuario3 = usuario("Juan Pérez", "juan@example.com", 345678, "00000")
+usuario4 = usuario("María López", "maria@example.com", 456789, "00000")
+usuario5 = usuario("Luis Torres", "luis@example.com", 567890, "00000")
 print(usuario.__doc__)
 print(usuario1.iniciar_sesion.__doc__)
 print(usuario1.cerrar_sesion.__doc__)
 print(usuario1.actualizar_perfil.__doc__)
 
-usuarios = [usuario1, usuario2]
+usuarios = [usuario1, usuario2, usuario3, usuario4, usuario5]
 for u in usuarios:
     print(u)
 
