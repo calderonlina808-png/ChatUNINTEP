@@ -1,3 +1,5 @@
+import hashlib
+
 class usuario:
     """DOCUMENTACION"""
     """REPRESENTA UN USUARIO REGISTRADO EN CHAT UNINTEP"""
@@ -6,17 +8,19 @@ class usuario:
         self.nombre = nombre
         self.correo = correo
         self.identificacion = identificacion
-        self.__contraseña = contraseña
+        self.__contraseña = self.__hashear_contraseña(contraseña)
+
+    def __hashear_contraseña(self, contraseña):
+        return hashlib.sha256(contraseña.encode()).hexdigest()
 
     def iniciar_sesion(self, contraseña_ingresada):
-        """EL USUARIO PUEDE INICIAR SESION EN SU DISPOSITIVO""" #docstring
-        if contraseña_ingresada == self.__contraseña:
-            print (f"{self.nombre} inicio sesión correctamente")
+        """EL USUARIO PUEDE INICIAR SESION EN SU DISPOSITIVO"""
+        if self.__hashear_contraseña(contraseña_ingresada) == self.__contraseña:
+            print(f"{self.nombre} inicio sesión correctamente")
             return True
-        else: 
-            print ("contraseña incorrecta")
+        else:
+            print("contraseña incorrecta")
             return False
-
     def cerrar_sesion(self):
         """EL USUARION CIERRA SESION DE MANERA SEGURA"""
         print (f"{self.nombre} cerro sesión correctamente")
@@ -35,7 +39,7 @@ class usuario:
 
         elif opcion == "2":
             nueva_contraseña = input("Ingresa tu nueva contraseña: ")
-            self.__contraseña = nueva_contraseña
+            self.__contraseña = self.__hashear_contraseña(nueva_contraseña)
             print("Contraseña actualizada correctamente")
         else:
                 print("Opción no válida")
@@ -47,6 +51,8 @@ usuario1 = usuario("Carla Moreno", "carla@example.com", 123456, "00000")
 usuario2 = usuario("Ramón Gil", "ramon@example.com", 234567 ,"00000")
 print(usuario.__doc__)
 print(usuario1.iniciar_sesion.__doc__)
+print(usuario1.cerrar_sesion.__doc__)
+print(usuario1.actualizar_perfil.__doc__)
 
 usuarios = [usuario1, usuario2]
 for u in usuarios:
