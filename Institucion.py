@@ -1,3 +1,4 @@
+from datetime import datetime
 class institucion:
     """REPRESENTA UN USUARIO REGISTRADO EN CHAT UNINTEP"""
 
@@ -31,3 +32,24 @@ class institucion:
             return("correo valido")
         else:
             return("correo no valido")
+
+
+
+class Notificacion:
+    """Representa un aviso enviado a un usuario dentro del sistema de chat universitario"""
+
+    def __init__(self, id_notificacion, contenido, usuario_destino):
+        self.id_notificacion = id_notificacion
+        self.contenido = contenido
+        self.fecha_hora = datetime.now()
+        self.leido = False
+        self.usuario_destino = usuario_destino
+
+    def marcar_leido(self):
+        """Marca la notificación como leída por el usuario"""
+        self.leido = True
+        print(f"Notificación {self.id_notificacion} marcada como leída")
+
+    def __str__(self):
+        estado = "Leída" if self.leido else "No leída"
+        return f"[{estado}] {self.contenido} ({self.fecha_hora.strftime('%d/%m/%Y %H:%M')})"
