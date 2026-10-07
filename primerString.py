@@ -1,6 +1,5 @@
 class usuario:
-    """DOCUMENTACION"""
-    """REPRESENTA UN USUARIO REGISTRADO EN CHAT UNINTEP"""
+    """DOCUMENTA UN USUARIO REGISTRADO EN CHAT UNINTEP"""
     def __init__(self, nombre, correo):
         self.nombre = nombre
         self.correo = correo
@@ -16,3 +15,4 @@ usuario3 = usuario("Sol", "sol@unintep.edu.co")
 
 print(usuario.__doc__)
 print(usuario1.enviar_Mensaje.__doc__)
+""" REPRESENTACION """
